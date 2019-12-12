@@ -5,10 +5,6 @@ Docker Introduction
 - Docker is a container management service.
 - The keywords of Docker are Build, ship  and run anywhere. 
 - The whole idea of Docker is for developers to easily develop applications, ship them into containers which can then be deployed anywhere.
-
-
-
-
 ------------------------------
 Docker Installation on Ubuntu
 -----------------------------
@@ -28,7 +24,7 @@ Docker Installation on Ubuntu
 	sudo systemctl status docker
 - checking the docker version:
       	docker --version
-- Add your username to the†docker†group to avoid typing†sudo†whenever you run the†docker†command
+- Add your username to the¬†docker¬†group to avoid typing¬†sudo¬†whenever you run the¬†docker¬†command
 	sudo usermod -aG docker ${USER}
 - You can log out of the server and log-in back to apply changes
 - Check whether your user added to docker group or not
@@ -43,11 +39,11 @@ Working with Docker
 	docker info
 
 - To view the switches available to a specific command, type:
-	docker docker-subcommand ñhelp
+	docker docker-subcommand ‚Äìhelp
 - To check whether you can access and download images from Docker Hub, type:
                 docker run hello-world        
            The output, should indicate that  Docker in working correctly
-- You can search for images available on Docker Hub by† using below command:
+- You can search for images available on Docker Hub by¬† using below command:
                docker search ubuntu
 
 Creating a account on DockerHub:
@@ -58,7 +54,7 @@ Creating a account on DockerHub:
 	https://hub.docker.com/
 - First you need to do a simple sign-up on Docker hub.
 - Once you have signed up, you will be logged into Docker Hub
-- Next, letís browse and find the Jenkins image.
+- Next, let‚Äôs browse and find the Jenkins image.
 
 Pulling and Running an Image from DockerHub
 -------------------------------------------
@@ -109,17 +105,17 @@ hello-world         latest              1815c82652c0        10 days ago         
 centos              latest              3bee3060bfc8        2 weeks ago         193MB
 
 
-? TAG ñ This is used to logically tag images.
-? Image ID ñ This is used to uniquely identify the image.
-? Created ñ The number of days since the image was created.
-? Virtual Size ñ The size of the image.
+? TAG ‚Äì This is used to logically tag images.
+? Image ID ‚Äì This is used to uniquely identify the image.
+? Created ‚Äì The number of days since the image was created.
+? Virtual Size ‚Äì The size of the image.
 
 
 docker run hello-world 
   --The run command is used to mention that we want to create an instance of an image, 
     which is then called a container.
 
-docker run centos ñit /bin/bash
+docker run centos ‚Äìit /bin/bash
   -- -it is used to mention that we want to run in interactive mode.
 
 docker images
@@ -134,8 +130,8 @@ docker rmi <ImageID>
   -- This command is used to remove Docker images.
 
 docker images -q
-  -- This command is used to return only the Image IDís of the images.
-     q - It tells the Docker command to return the Image IDís only.
+  -- This command is used to return only the Image ID‚Äôs of the images.
+     q - It tells the Docker command to return the Image ID‚Äôs only.
 
 docker ps -a 
   -- -a - It tells the docker ps command to list all of the containers on the system.
@@ -257,17 +253,17 @@ Dockerfile
 ------------
 FROM ubuntu 
 RUN apt-get update 
-RUN apt-get install ñy apache2 
-RUN apt-get install ñy apache2-utils 
+RUN apt-get install ‚Äìy apache2 
+RUN apt-get install ‚Äìy apache2-utils 
 RUN apt-get clean 
 EXPOSE 80 
-CMD [ìapache2ctlî, ì-Dî, ìFOREGROUNDî]
+CMD [‚Äúapache2ctl‚Äù, ‚Äú-D‚Äù, ‚ÄúFOREGROUND‚Äù]
 
 
-docker build ñt=îmywebserverî . 
+docker build ‚Äìt=‚Äùmywebserver‚Äù . 
 
-docker run ñd ñp 80:80 mywebserver 
----- ñd : detached mode
+docker run ‚Äìd ‚Äìp 80:80 mywebserver 
+---- ‚Äìd : detached mode
 
 
 
@@ -363,7 +359,8 @@ def hello():
     html = "<h3>Hello {name}!</h3>" \
            "<b>Hostname:</b> {hostname}<br/>" \
            "<b>Visits:</b> {visits}"
-    return html.format(name=os.getenv("NAME", "world"), hostname=socket.gethostname(), 
+    return html.format(name=os.getenv("NAME", "world"), hostname=socket.gethostname(), 
+
 visits=visits)
 
 if __name__ == "__main__":
@@ -439,16 +436,19 @@ This docker-compose.yml file tells Docker to do the following:
 
 Pull the image from the registry.
 
-Run 3 instances of that image as a service called web, limiting each one to use, at most, 10% 
-of a single core of CPU time (this could also be e.g. ì1.5î to mean 1 and half core for each), 
+Run 3 instances of that image as a service called web, limiting each one to use, at most, 10% 
+
+of a single core of CPU time (this could also be e.g. ‚Äú1.5‚Äù to mean 1 and half core for each), 
+
 and 50MB of RAM.
 
 Immediately restart containers if one fails.
 
-Map port 4000 on the host to webís port 80.
+Map port 4000 on the host to web‚Äôs port 80.
 
-Instruct webís containers to share port 80 via a load-balanced network called webnet. 
-(Internally, the containers themselves publish to webís port 80 at an ephemeral port.)
+Instruct web‚Äôs containers to share port 80 via a load-balanced network called webnet. 
+
+(Internally, the containers themselves publish to web‚Äôs port 80 at an ephemeral port.)
 
 Define the webnet network with the default settings (which is a load-balanced overlay network).
 
@@ -467,9 +467,11 @@ FROM <image>@<digest>
 Information:
 
 FROM must be the first non-comment instruction in the Dockerfile.
-FROM can appear multiple times within a single Dockerfile in order to create multiple images. 
+FROM can appear multiple times within a single Dockerfile in order to create multiple images. 
+
 Simply make a note of the last image ID output by the commit before each new FROM command.
-The tag or digest values are optional. If you omit either of them, the builder assumes a latest 
+The tag or digest values are optional. If you omit either of them, the builder assumes a latest 
+
 by default. The builder returns an error if it cannot match the tag value.
 _
 
@@ -486,15 +488,18 @@ RUN
 
 Usage:
 
-RUN <command> (shell form, the command is run in a shell, which by default is /bin/sh -c on 
+RUN <command> (shell form, the command is run in a shell, which by default is /bin/sh -c on 
+
 Linux or cmd /S /C on Windows)
 RUN ["<executable>", "<param1>", "<param2>"] (exec form)
 Information:
 
-The exec form makes it possible to avoid shell string munging, and to RUN commands using a base 
+The exec form makes it possible to avoid shell string munging, and to RUN commands using a base 
+
 image that does not contain the specified shell executable.
 The default shell for the shell form can be changed using the SHELL command.
-Normal shell processing does not occur when using the exec form. For example, RUN ["echo", 
+Normal shell processing does not occur when using the exec form. For example, RUN ["echo", 
+
 "$HOME"] will not do variable substitution on $HOME.
 _
 
@@ -507,16 +512,22 @@ CMD ["<param1>","<param2>"] (as default parameters to ENTRYPOINT)
 CMD <command> <param1> <param2> (shell form)
 Information:
 
-The main purpose of a CMD is to provide defaults for an executing container. These defaults can 
-include an executable, or they can omit the executable, in which case you must specify an 
+The main purpose of a CMD is to provide defaults for an executing container. These defaults can 
+
+include an executable, or they can omit the executable, in which case you must specify an 
+
 ENTRYPOINT instruction as well.
-There can only be one CMD instruction in a Dockerfile. If you list more than one CMD then only 
+There can only be one CMD instruction in a Dockerfile. If you list more than one CMD then only 
+
 the last CMD will take effect.
-If CMD is used to provide default arguments for the ENTRYPOINT instruction, both the CMD and 
+If CMD is used to provide default arguments for the ENTRYPOINT instruction, both the CMD and 
+
 ENTRYPOINT instructions should be specified with the JSON array format.
-If the user specifies arguments to docker run then they will override the default specified in 
+If the user specifies arguments to docker run then they will override the default specified in 
+
 CMD.
-Normal shell processing does not occur when using the exec form. For example, CMD ["echo", 
+Normal shell processing does not occur when using the exec form. For example, CMD ["echo", 
+
 "$HOME"] will not do variable substitution on $HOME.
 _
 
@@ -528,12 +539,15 @@ LABEL <key>=<value> [<key>=<value> ...]
 Information:
 
 The LABEL instruction adds metadata to an image.
-To include spaces within a LABEL value, use quotes and backslashes as you would in command-line 
+To include spaces within a LABEL value, use quotes and backslashes as you would in command-line 
+
 parsing.
 Labels are additive including LABELs in FROM images.
-If Docker encounters a label/key that already exists, the new value overrides any previous 
+If Docker encounters a label/key that already exists, the new value overrides any previous 
+
 labels with identical keys.
-To view an imageís labels, use the docker inspect command. They will be under the "Labels" JSON 
+To view an image‚Äôs labels, use the docker inspect command. They will be under the "Labels" JSON 
+
 attribute.
 _
 
@@ -557,11 +571,14 @@ ENV <key>=<value> [<key>=<value> ...]
 Information:
 
 The ENV instruction sets the environment variable <key> to the value <value>.
-The value will be in the environment of all ìdescendantî Dockerfile commands and can be 
+The value will be in the environment of all ‚Äúdescendant‚Äù Dockerfile commands and can be 
+
 replaced inline as well.
-The environment variables set using ENV will persist when a container is run from the resulting 
+The environment variables set using ENV will persist when a container is run from the resulting 
+
 image.
-The first form will set a single variable to a value with the entire string after the first 
+The first form will set a single variable to a value with the entire string after the first 
+
 space being treated as the <value> - including characters such as spaces and quotes.
 _
 
@@ -573,13 +590,15 @@ ADD <src> [<src> ...] <dest>
 ADD ["<src>", ... "<dest>"] (this form is required for paths containing whitespace)
 Information:
 
-Copies new files, directories, or remote file URLs from <src> and adds them to the filesystem 
+Copies new files, directories, or remote file URLs from <src> and adds them to the filesystem 
+
 of the image at the path <dest>.
-<src> may contain wildcards and matching will be done using Goís filepath.Match rules.
-If <src> is a file or directory, then they must be relative to the source directory that is 
+<src> may contain wildcards and matching will be done using Go‚Äôs filepath.Match rules.
+If <src> is a file or directory, then they must be relative to the source directory that is 
+
 being built (the context of the build).
 <dest> is an absolute path, or a path relative to WORKDIR.
-If <dest> doesnít exist, it is created along with all missing directories in its path.
+If <dest> doesn‚Äôt exist, it is created along with all missing directories in its path.
 _
 
 COPY
@@ -590,12 +609,13 @@ COPY <src> [<src> ...] <dest>
 COPY ["<src>", ... "<dest>"] (this form is required for paths containing whitespace)
 Information:
 
-Copies new files or directories from <src> and adds them to the filesystem of the image at the 
+Copies new files or directories from <src> and adds them to the filesystem of the image at the 
+
 path <dest>.
-<src> may contain wildcards and matching will be done using Goís filepath.Match rules.
+<src> may contain wildcards and matching will be done using Go‚Äôs filepath.Match rules.
 <src> must be relative to the source directory that is being built (the context of the build).
 <dest> is an absolute path, or a path relative to WORKDIR.
-If <dest> doesnít exist, it is created along with all missing directories in its path.
+If <dest> doesn‚Äôt exist, it is created along with all missing directories in its path.
 _
 
 ENTRYPOINT
@@ -607,10 +627,13 @@ ENTRYPOINT <command> <param1> <param2> (shell form)
 Information:
 
 Allows you to configure a container that will run as an executable.
-Command line arguments to docker run <image> will be appended after all elements in an exec 
+Command line arguments to docker run <image> will be appended after all elements in an exec 
+
 form ENTRYPOINT and will override all elements specified using CMD.
-The shell form prevents any CMD or run command line arguments from being used, but the 
-ENTRYPOINT will start via the shell. This means the executable will not be PID 1 nor will it 
+The shell form prevents any CMD or run command line arguments from being used, but the 
+
+ENTRYPOINT will start via the shell. This means the executable will not be PID 1 nor will it 
+
 receive UNIX signals. Prepend exec to get around this drawback.
 Only the last ENTRYPOINT instruction in the Dockerfile will have an effect.
 _
@@ -621,7 +644,8 @@ Usage:
 
 VOLUME ["<path>", ...]
 VOLUME <path> [<path> ...]
-Creates a mount point with the specified name and marks it as holding externally mounted 
+Creates a mount point with the specified name and marks it as holding externally mounted 
+
 volumes from native host or other containers.
 
 _
@@ -631,7 +655,8 @@ USER
 Usage:
 
 USER <username | UID>
-The USER instruction sets the user name or UID to use when running the image and for any RUN, 
+The USER instruction sets the user name or UID to use when running the image and for any RUN, 
+
 CMD and ENTRYPOINT instructions that follow it in the Dockerfile.
 
 
@@ -643,9 +668,11 @@ Usage:
 WORKDIR </path/to/workdir>
 Information:
 
-Sets the working directory for any RUN, CMD, ENTRYPOINT, COPY, and ADD instructions that follow 
+Sets the working directory for any RUN, CMD, ENTRYPOINT, COPY, and ADD instructions that follow 
+
 it.
-It can be used multiple times in the one Dockerfile. If a relative path is provided, it will be 
+It can be used multiple times in the one Dockerfile. If a relative path is provided, it will be 
+
 relative to the path of the previous WORKDIR instruction.
 _
 
@@ -656,15 +683,19 @@ Usage:
 ARG <name>[=<default value>]
 Information:
 
-Defines a variable that users can pass at build-time to the builder with the docker build 
+Defines a variable that users can pass at build-time to the builder with the docker build 
+
 command using the --build-arg <varname>=<value> flag.
-Multiple variables may be defined by specifying ARG multiple times.
-It is not recommended to use build-time variables for passing secrets like github keys, user 
-credentials, etc. Build-time variable values are visible to any user of the image with the 
+Multiple variables may be defined by specifying ARG multiple timesIt is not recommended to use build-time variables for passing secrets like github keys, user 
+
+credentials, etc. Build-time variable values are visible to any user of the image with the 
+
 docker history command.
-Environment variables defined using the ENV instruction always override an ARG instruction of 
+Environment variables defined using the ENV instruction always override an ARG instruction of 
+
 the same name.
-Docker has a set of predefined ARG variables that you can use without a corresponding ARG 
+Docker has a set of predefined ARG variables that you can use without a corresponding ARG 
+
 instruction in the Dockerfile.
 HTTP_PROXY and http_proxy
 HTTPS_PROXY and https_proxy
@@ -737,8 +768,7 @@ Run the "docker swarm join" command on worker nodes which was produced during "d
 
 	docker swarm join --token SWMTKN-1-0wzn32lyp70xwky49d26fb9rwlvsv50ybib7we1uke0sbgh4ks-d8ey57w5uiw2q920c6llsdvel xxx.xx.xx.xx:2377
 
-Open the Manager node then execute the below command to see the list of workers
-    docker node ls
+Open the Manager node then execute the below command to see the list of workers  docker node ls
 
 	
 Deploying a service on Swarm:
@@ -761,7 +791,7 @@ deploying apache/nginx:
 	docker service create -publish 80:80 nginx
 	
 	
-If you donít have the command available, you can run the following command on a manager node to retrieve the join command for a worker:
+If you don‚Äôt have the command available, you can run the following command on a manager node to retrieve the join command for a worker:
 	docker swarm join-token worker
 Use "docker swarm leave" to leave this swarm and join another one.
 	docker swarm leave --force
@@ -795,7 +825,4 @@ https://docs.docker.com/registry/recipes/mirror/
 docker swarm related stuff::::::
 -----------------------------------
 https://www.thepolyglotdeveloper.com/2017/05/load-balancing-docker-swarm-cluster-nginx-reverse-proxy/
-
-
-
 
